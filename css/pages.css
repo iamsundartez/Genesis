@@ -1,0 +1,336 @@
+/* css/pages.css */
+
+/* View Container Common */
+.view {
+    opacity: 0;
+    display: none;
+    animation: fadeIn var(--transition-normal) forwards;
+}
+
+.view.active {
+    display: block;
+}
+
+/* --- 1. Landing View --- */
+.landing-view {
+    height: calc(100vh - var(--nav-height));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: var(--space-2xl);
+    position: relative;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    line-height: 1.1;
+    max-width: 800px;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin-bottom: var(--space-2xl);
+}
+
+.hero-stats {
+    display: flex;
+    gap: var(--space-2xl);
+    margin-bottom: var(--space-2xl);
+    padding: var(--space-lg) var(--space-2xl);
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: var(--border-radius-pill);
+    backdrop-filter: var(--backdrop-blur);
+}
+
+.hero-stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: var(--font-family-display);
+    color: white;
+}
+
+.hero-stat-label {
+    font-size: 0.8rem;
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- 2. Dashboard View --- */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--space-md);
+}
+
+.kpi-row {
+    grid-column: span 12;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+}
+
+.kpi-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.kpi-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.kpi-title {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+.kpi-icon {
+    color: var(--color-purple-primary);
+}
+
+.kpi-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: var(--font-family-display);
+    margin: var(--space-sm) 0;
+}
+
+.kpi-trend {
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.kpi-trend.positive { color: var(--color-status-secure); }
+.kpi-trend.negative { color: var(--color-status-critical); }
+
+.radar-section {
+    grid-column: span 8;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.radar-container {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.alerts-section {
+    grid-column: span 4;
+}
+
+.alert-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.alert-item {
+    padding: var(--space-sm) var(--space-md);
+    background: rgba(0,0,0,0.2);
+    border-left: 3px solid var(--color-purple-primary);
+    border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+}
+
+.alert-item.critical { border-left-color: var(--color-status-critical); }
+.alert-item.high { border-left-color: var(--color-status-high); }
+
+.alert-time {
+    font-size: 0.7rem;
+    color: var(--color-text-tertiary);
+}
+
+.alert-msg {
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+
+/* --- 3. Framework View (NIST CSF) --- */
+.framework-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: var(--space-lg);
+    height: calc(100vh - var(--nav-height) - 4rem);
+}
+
+.function-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    overflow-y: auto;
+    padding-right: var(--space-sm);
+}
+
+.function-item {
+    padding: var(--space-md);
+    background: var(--color-bg-elevated);
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all var(--transition-fast);
+}
+
+.function-item:hover, .function-item.active {
+    background: var(--color-bg-surface-hover);
+    border-color: var(--color-purple-glow);
+}
+
+.function-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-sm);
+}
+
+.function-title {
+    font-weight: 600;
+}
+
+.function-score {
+    font-family: var(--font-family-mono);
+    font-size: 0.85rem;
+}
+
+.controls-detail {
+    overflow-y: auto;
+}
+
+.control-card {
+    margin-bottom: var(--space-sm);
+    padding: var(--space-md);
+    background: rgba(0,0,0,0.2);
+    border-radius: var(--border-radius-md);
+}
+
+.control-id {
+    font-family: var(--font-family-mono);
+    color: var(--color-purple-primary);
+    font-weight: 600;
+    margin-right: var(--space-sm);
+}
+
+/* --- Generic layout for Risks, Incidents, Reports --- */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-lg);
+}
+
+.page-title {
+    margin: 0;
+}
+
+.toolbar {
+    display: flex;
+    gap: var(--space-sm);
+}
+
+.search-input {
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-md);
+    color: white;
+    width: 250px;
+}
+
+/* --- 8. AI Insights View --- */
+.ai-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-lg);
+    height: calc(100vh - var(--nav-height) - 4rem);
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.chat-history {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.chat-msg {
+    max-width: 80%;
+    padding: var(--space-md);
+    border-radius: var(--border-radius-lg);
+}
+
+.msg-user {
+    align-self: flex-end;
+    background: var(--color-purple-primary);
+    border-bottom-right-radius: 4px;
+}
+
+.msg-ai {
+    align-self: flex-start;
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--border-color);
+    border-bottom-left-radius: 4px;
+}
+
+.chat-input-area {
+    margin-top: var(--space-md);
+    display: flex;
+    gap: var(--space-sm);
+}
+
+.chat-input {
+    flex: 1;
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    border-radius: var(--border-radius-md);
+    color: white;
+}
+
+.suggestions-panel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.suggestion-card {
+    padding: var(--space-md);
+    background: linear-gradient(180deg, rgba(161,0,255,0.1) 0%, transparent 100%);
+    border: 1px solid var(--color-purple-glow);
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: transform var(--transition-fast);
+}
+
+.suggestion-card:hover {
+    transform: translateY(-2px);
+}

@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vector-database-genesis
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: milvus
+    repoURL: oci://ghcr.io/infrastructure-charts
+    targetRevision: 4.2.0
+    helm:
+      values: |
+        image:
+          repository: ghcr.io/secure-images/milvus
+          tag: v2.4.0-secure
+          pullSecrets:
+            - registry-credentials
+        cluster:
+          enabled: true
+        persistence:
+          enabled: true
+          storageClass: "premium-rwo"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: vector-db
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

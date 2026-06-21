@@ -1,0 +1,78 @@
+/* css/variables.css */
+:root {
+    /* Brand Colors - Accenture Purple & Theme */
+    --color-purple-primary: #A100FF;
+    --color-purple-hover: #B833FF;
+    --color-purple-dark: #4A0080;
+    --color-purple-glow: rgba(161, 0, 255, 0.4);
+    
+    /* Background & Surface Colors (Dark Theme) */
+    --color-bg-base: #0D0B1A;
+    --color-bg-surface: rgba(26, 23, 48, 0.7);
+    --color-bg-surface-solid: #1A1730;
+    --color-bg-surface-hover: rgba(45, 40, 80, 0.8);
+    --color-bg-elevated: rgba(35, 30, 65, 0.9);
+    
+    /* Text Colors */
+    --color-text-primary: #FFFFFF;
+    --color-text-secondary: #A09EB0;
+    --color-text-tertiary: #6C6885;
+    --color-text-inverse: #0D0B1A;
+    
+    /* Semantic Colors (Compliance/GRC) */
+    --color-status-critical: #FF3B3B;
+    --color-status-high: #FF9F0A;
+    --color-status-medium: #FFD60A;
+    --color-status-low: #32D74B;
+    --color-status-info: #0A84FF;
+    --color-status-secure: #00F5D4;
+    
+    /* Glow/Shadows for semantic colors */
+    --glow-critical: rgba(255, 59, 59, 0.3);
+    --glow-high: rgba(255, 159, 10, 0.3);
+    --glow-secure: rgba(0, 245, 212, 0.3);
+    
+    /* Gradients - Accenture Brand Gradients */
+    --gradient-primary: linear-gradient(135deg, var(--color-purple-primary) 0%, #FFFFFF 100%);
+    --gradient-brand: linear-gradient(90deg, #A100FF, #7B00D3, #4A0080);
+    --gradient-surface: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%);
+    
+    /* Typography */
+    --font-family-display: 'Outfit', sans-serif;
+    --font-family-body: 'Inter', sans-serif;
+    --font-family-mono: 'JetBrains Mono', monospace;
+    
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+    
+    /* Layout */
+    --nav-height: 72px;
+    --container-max-width: 1600px;
+    --sidebar-width: 280px;
+    
+    /* Borders & Radius */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 16px;
+    --border-radius-xl: 24px;
+    --border-radius-pill: 999px;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --border-color-glow: rgba(161, 0, 255, 0.3);
+    
+    /* Glassmorphism */
+    --glass-bg: rgba(20, 18, 38, 0.6);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    --backdrop-blur: blur(12px);
+    
+    /* Animations */
+    --transition-fast: 150ms ease;
+    --transition-normal: 300ms ease;
+    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}

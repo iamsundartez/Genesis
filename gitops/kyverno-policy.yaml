@@ -1,0 +1,24 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: verify-vector-db-signatures
+spec:
+  validationFailureAction: Enforce
+  background: false
+  rules:
+    - name: verify-image
+      match:
+        any:
+          - resources:
+              namespaces:
+                - vector-db
+              kinds:
+                - Pod
+      verifyImages:
+        - imageRule: "ghcr.io/secure-images/*"
+          attestations:
+            - predicateType: cosign.sigstore.dev/attestation/v1
+          publicKeys: |-
+            -----BEGIN PUBLIC KEY-----
+            MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAz6...
+            -----END PUBLIC KEY-----
